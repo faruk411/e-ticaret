@@ -1,0 +1,31 @@
+﻿
+
+<ul class="navbar-nav  mb-2 mb-lg-0">
+
+    @if (Request.IsAuthenticated)
+    {
+        // Kullanıcı adını ve logoutu çıkar
+
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Account"><span class="btn btn-primary">@User.Identity.Name</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Account/Logout"><span class="btn btn-danger">Çıkış yap</span></a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Account/Login"><span class="btn btn-success">Giriş yap</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/Account/Register"><span class="btn btn-primary">Kayıt ol</span></a>
+        </li>
+    }
+
+
+
+
+
+
+</ul>

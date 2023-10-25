@@ -1,0 +1,33 @@
+﻿@using e_ticaret_MVC.Models;
+@model IEnumerable<ProductModel>
+
+<head>
+    <link rel="stylesheet" href="/theme/css/style.css">
+</head>
+<div class="row">
+    @foreach (var urun in Model)
+    {
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <img src="/Upload/@urun.Image" class="card-img-top" alt="" style="width:200px;height:200px;">
+                <div class="card-body">
+                    <h5 class="card-title" style=" font-size: 16px; font-weight: 400; color: #484848; line-height: 1.35em; height: 34px;">
+                        <a href="/Home/Details/@urun.Id " style="text-decoration: none; ">@urun.Name</a>
+                    </h5>
+                    <p class="card-text pt-2" style="font-size:14px;height:40px;">@urun.Description</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary" style="color:#414141;font-weight:700;font-size:17px;">
+                        <i class="fa-solid fa-turkish-lira-sign"></i>
+                        @urun.Price
+                    </small>
+                    <a href="/Home/Details/@urun.Id " class="btn btn-default btn-sm "style="float:right; color:cornflowerblue;">
+                        <i class="fa-solid fa-angles-right"></i>
+                        Ürünü incele
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

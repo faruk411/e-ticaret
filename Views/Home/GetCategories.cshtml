@@ -1,0 +1,45 @@
+﻿@model IEnumerable<e_ticaret_MVC.Entity.Category>
+@{  
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+
+<div class="list-group">
+    <a href="/Home/List" class="list-group-item list-group-item-action " aria-current="true" style="color:#2d2b2b">
+        <i class="fa-solid fa-angles-right"></i>
+        Tüm Kategoriler
+    </a>
+    @foreach (var item in Model)
+    {
+
+
+        if (selectedCategory != null)
+        {
+            if (item.Id == int.Parse(selectedCategory.ToString()))
+            {
+                // seçilen kategori ile route id 'si eşit
+                <a href="/Home/List/@item.Id" class="list-group-item list-group-item-action active " aria-current="true" style="color: #2d2b2b">
+                    <i class="fa-solid fa-angles-right"></i>
+                    @item.Name
+                </a>
+            }
+            else
+            {
+                <a href="/Home/List/@item.Id" class="list-group-item list-group-item-action " aria-current="true" style="color: #2d2b2b">
+                    <i class="fa-solid fa-angles-right"></i>
+                    @item.Name
+                </a>
+            }
+        }
+        else
+        {
+            <a href="/Home/List/@item.Id" class="list-group-item list-group-item-action " aria-current="true" style="color: #2d2b2b">
+                <i class="fa-solid fa-angles-right"></i>
+                @item.Name
+            </a>
+        }
+
+
+
+    }
+
+</div>
